@@ -1,0 +1,273 @@
+*{
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root{
+    --blue-dark: #0e141e;
+    --orange-color: #EC9022;
+    --orange-dark-color: #da831a;
+    --white-color: white;
+    --white-shade: #f2f5f7;
+    --green-color: #40af0c;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header{
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--white-color);
+    padding: 50px 200px;
+    transition: 0.5s;
+}
+
+.close{
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--blue-dark);
+}
+
+.bookmark{
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--orange-color);
+}
+
+.bookmark:hover{
+    color: var(--orange-dark-color);
+    font-size: 24px;
+
+}
+
+.close span{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.close i{
+    font-size: 24px;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--orange-color);
+    column-gap: 8px;
+}
+
+.logo .bx{
+    font-size: 24px;
+}
+
+.progress-bar{
+    background-color: #eaf0f3;
+    border-radius: 14px;
+    flex: 1;
+    height: 10px;
+    max-width: 648px;
+    overflow: hidden;
+}
+
+.progress-bar-progress{
+    background-color: var(--green-color);
+    border-bottom-right-radius: 14px;
+    border-top-right-radius: 14px;
+    height: 100%;
+    width: 0%;
+}
+
+.progress-bar-slider{
+    background-color: var(--white-color);
+    border-radius: 50%;
+    height: 6px;
+    width: 6px;
+    float: right;
+    position: relative;
+    top: 2px;
+    right: 2px;
+}
+
+.sub-container{
+    padding: 0px 450px 130px 450px;
+    height: auto;
+    width: 100%;
+    text-align: left;
+}
+
+.question{
+    width: 100%;
+    height: auto;
+    padding: 30px;
+}
+
+.discription{
+    background-color: var(--white-shade);
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.answers{
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.answer-btn{
+    background: #fff;
+    border: 2px solid #c8d2db;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 16px 24px;
+    margin-top: 20px;
+}
+
+.answer-btn-correct{
+    border: 3px solid var(--green-color);
+}
+
+.answer-btn:hover{
+    box-shadow: 0 8px 11px rgb(14 55 54 / 15%);
+}
+
+.footer{
+    background-color: var(--white-color);
+    border-top: 1px solid #c8d2db;
+    bottom: 0;
+    width: 100%;
+    position: fixed;
+}
+
+.footer-container{
+    width: 100%;
+    padding: 32px 450px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.back-btn{
+    font-size: 16px;
+    font-weight: 600;
+    padding: 0 48px;
+    min-height: 48px;
+    background-color: rgba(0,0,0,0);
+    border: 1px solid var(--orange-color);
+    color: var(--orange-color);
+    cursor: pointer;
+}
+
+.back-btn:hover{
+    box-shadow: 0 8px 11px rgb(14 55 54 / 15%);
+}
+
+.check-btn{
+    font-size: 16px;
+    font-weight: 600;
+    padding: 0 48px;
+    min-height: 48px;
+    background-color: var(--orange-color);
+    border: 1px solid var(--orange-dark-color);
+    color: var(--white-color);
+    cursor: pointer;
+}
+
+.check-btn:hover{
+    box-shadow: 0 8px 11px rgb(14 55 54 / 15%);
+}
+
+@media(max-width: 1300px){
+    header{
+        padding: 18px 60px; 
+    }
+
+    .sub-container{
+        padding: 0px 250px 130px 250px;
+    }
+
+    .footer-container{
+        padding: 32px 250px;
+        
+    }
+}
+
+@media(max-width: 991px){
+   header{
+        padding: 16px 4%;
+   }
+
+   .sub-container{
+    padding: 0px 180px 130px 180px;
+    }
+
+    .footer-container{
+        padding: 32px 180px;
+        
+    }
+}
+
+@media(max-width: 852px){
+    header{
+        padding: 12px 4%;
+        height: 100px; 
+
+    }
+
+    .sub-container{
+        padding: 0px 120px 130px 120px;
+        margin-top: 30px;
+    }
+
+    .footer-container{
+        padding: 32px 120px;
+        
+    }
+    
+    .progress-bar{
+        align-self: self-end;
+    }
+
+}
+
+@media(max-width: 600px){
+    header{
+        padding: 8px 4%; 
+        height: 100px;
+    }
+
+    .sub-container{
+        padding: 0px 50px 130px 50px;;
+        margin-top: 10px;
+    }
+
+    .footer-container{
+        padding: 32px 50px;
+        
+    }
+
+}
