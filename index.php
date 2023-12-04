@@ -19,7 +19,7 @@
             <div class="content">
                 <div class="topic">
                     <h1>For</h1>
-                    <h1 style="color: #EC9022; margin-left: 10px;">Admin</h1>
+                    <h1 style="color: #EC9022; margin-left: 10px;">Lecturer</h1>
                 </div>
                 <p class="detail">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa laborum placeat rerum ex, architecto quas fugit!</p>
                 <a href="admin_login.php"><button class="admin-btn">Log In</button></a>

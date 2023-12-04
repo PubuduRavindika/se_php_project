@@ -53,89 +53,104 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/add_question.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <title>Document</title>
-    <style>
-        .form-holder form {
-            width: 80%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Alert Box */
-        .alert {
-            padding: 20px;
-            background-color: #0b3100;
-            color: white;
-        }
-
-        .closebtn {
-            margin-left: 15px;
-            color: white;
-            font-weight: bold;
-            float: right;
-            font-size: 22px;
-            line-height: 20px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .closebtn:hover {
-            color: black;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="form-holder">
-        <form method="post" class="login-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-            <label for="q_title">Question Title:</label>
-            <input type="text" name="q_title" id="q_title" required>
+    <div class="container">
+        <div id="sidenav" class="sidenav">
+            <p class="logo"><i class='bx bxl-redux'></i>LMS QUIZ</p>
+            <a href="dashboard.php" class="icon-a"> <i class="fa fa-dashboard icons"></i>&nbsp;&nbsp; Dashboard </a>
+            <a href="add_question.php" class="icon-a active"> <i class="fa fa-plus icons"></i>&nbsp;&nbsp; Add Questions </a>
+            <a href="index.html" class="icon-a"> <i class="fa fa-tasks icons"></i>&nbsp;&nbsp; Manage Questions </a>
+            <a href="index.html" class="icon-a"> <i class="fa fa-search icons"></i>&nbsp;&nbsp; Review Questuins </a>
+            <a href="index.html" class="icon-a"> <i class="fa fa-users icons"></i>&nbsp;&nbsp; Review Students </a>
+        </div>
 
-            <label for="q_body">Question Body: (Optional)</label>
-            <input type="text" name="q_body" id="q_body">
+        <div class="main">
+            <div class="col-div-6">
+                <span style="font-size: 30px; cursor: pointer; color: #da831a;" class="nav">Dashboard</span>
+                <a style="color: #da831a; text-decoration: none; margin-top: 8px;" href="../logout.php">Logout</a>
+            </div>
 
-            <label for="q_explain">Code :(Optional)</label>
-            <textarea name="q_code" id="q_code" cols="30" rows="10"></textarea>
+            <div class="sub-container">
+            <form method="post" class="" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                <div class="add">
+                    <div class="input-box">
+                        <label for="">Question Title :</label>
+                        <input type="text" placeholder="" name="q_title" required>
+                    </div>
 
-            <label for="q_correct_ans">Correct Answer:</label>
-            <input type="text" name="q_correct_ans" id="q_correct_ans" required>
+                    <div class="input-box">
+                        <label for="">Question Body(Optional) :</label>
+                        <textarea id="" name="q_body"></textarea>
+                    </div>
 
-            <label for="q_other_ans_1">Answer Option 1:</label>
-            <input type="text" name="q_other_ans_1" id="q_other_ans_1" required>
+                    <div class="input-box">
+                        <label for="">Code(Optional) :</label>
+                        <textarea name="q_code" id=""></textarea>
+                    </div>
 
-            <label for="q_other_ans_2">Answer Option 2:</label>
-            <input type="text" name="q_other_ans_2" id="q_other_ans_2" required>
+                    <div class="input-box">
+                        <label for="">Correct Answer</label>
+                        <input type="text" name="q_correct_ans">
+                    </div>
 
-            <label for="q_other_ans_3">Answer Option 3:</label>
-            <input type="text" name="q_other_ans_3" id="q_other_ans_3" required>
+                    <div class="input-box">
+                        <label for="">Answer Option 1:</label>
+                        <input type="text" name="q_other_ans_1" />
+                    </div>
 
-            <label for="q_hint">Hint :(Optional)</label>
-            <textarea name="q_hint" id="q_hint" cols="30" rows="10"></textarea>
+                    <div class="input-box">
+                        <label for="">Answer Option 2:</label>
+                        <input type="text" name="q_other_ans_2" />
+                    </div>
 
-            <label for="q_explain">Explanation :</label>
-            <textarea name="q_explain" id="q_explain" cols="30" rows="10"></textarea>
+                    <div class="input-box">
+                        <label for="">Answer Option 3:</label>
+                        <input type="text" name="q_other_ans_3" />
+                    </div>
 
-            <label for="q_module">Select Module:</label>
-            <select name="q_module" id="q_module">
-                <?php
-                $sql = "SELECT * FROM modules WHERE lecturer_id = '$lec_id'";
-                $result = mysqli_query($conn, $sql);
+                    <div class="input-box">
+                        <label for="">Hint(Optional) :</label>
+                        <textarea name="q_hint" id=""></textarea>
+                    </div>
 
-                if (mysqli_num_rows($result) > 0) {
-                    // output data of each row
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<option value="' . $row["module_id"] . '">' . $row["module_code"] . "-" . $row["module_name"] . '</option>';
-                    }
-                } else {
-                    echo "0 results";
-                }
-                ?>
-            </select>
+                    <div class="input-box">
+                        <label for="">Explanation :</label>
+                        <textarea name="q_explain" id=""></textarea>
+                    </div>
 
-            <input type="submit" value="add question">
+                    <div class="input-box">
+                        <label for="">Select Module:</label>
+                        <select name="q_module" id="">
+                            <?php
+                                $sql = "SELECT * FROM modules WHERE lecturer_id = '$lec_id'";
+                                $result = mysqli_query($conn, $sql);
 
-        </form>
-    </div>
+                                if (mysqli_num_rows($result) > 0) {
+                                    // output data of each row
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        echo '<option value="' . $row["module_id"] . '">' . $row["module_code"] . "-" . $row["module_name"] . '</option>';
+                                    }
+                                } else {
+                                    echo "0 results";
+                                }
+                            ?>
+                        </select>
+                    </div>
+                    <button class="btn">Add Question</button>
+                </div>
+
+                </form>
+            </div>
+        </div>
+
+
+
 </body>
 
 </html>
