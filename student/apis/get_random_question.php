@@ -24,7 +24,7 @@ if (!isset($_GET["module"])) {
 
 
 if (isset($_SESSION["count"]) && (int)$_SESSION["count"] >= 10) {
-    header("location:../done.php?module=$module_id");
+    header("location:../summary.php?module=$module_id");
     unset($_SESSION["count"]);
 }
 else{
