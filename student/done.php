@@ -7,7 +7,7 @@
     $student_id = $_SESSION["user"]["index"];
     
     foreach ($ques as $key => $value) {
-        echo $value;
+        print_r($value);
         echo '</br>';
     }
     

@@ -12,8 +12,8 @@ if(!isset($_SESSION["questions"])){
     $_SESSION["questions"] = array();
 }
 
-if(isset($_GET["pre_q_id"])){
-    array_push($_SESSION["questions"], $_GET["pre_q_id"]);
+if(isset($_GET["pre_q_id"]) && isset($_GET["iscorrect"])){
+    array_push($_SESSION["questions"], array($_GET["pre_q_id"], $_GET["iscorrect"]));
 }
 
 if (!isset($_GET["module"])) {

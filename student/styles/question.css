@@ -151,6 +151,10 @@ header{
     border: 3px solid var(--green-color);
 }
 
+.answer-btn-wrong{
+    border: 3px solid darkred;
+}
+
 .answer-btn:hover{
     box-shadow: 0 8px 11px rgb(14 55 54 / 15%);
 }

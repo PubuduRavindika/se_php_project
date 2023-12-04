@@ -39,12 +39,14 @@ if (mysqli_num_rows($result) > 0) {
     echo "0 results";
 }
 
-$isCorrect = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $selected_answer = $_POST["answer-set"];
     if($selected_answer == $correct_answer){
         $isCorrect = true;
+    }
+    else{
+        $isCorrect = false;
     }
 }
 
@@ -104,21 +106,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             ?>
             <form class="answers" id="answer_form" method="POST" action="<?php echo $_SERVER["REQUEST_URI"]; ?>">
                 <?php
-                !$isCorrect && shuffle($answers);
+                !isset($isCorrect) && shuffle($answers);
                 foreach ($answers as $key => $value) {
-                    if($isCorrect){
-                        if($value === $correct_answer){
-                            echo '
-                            <label for ="input_' . $key . '" id="input_label_' . $key . '" class="answer-btn answer-btn-correct" name ="input_labels">' . $value . '</label>
-                            <input type="radio" name="answer-set" id="input_' . $key . '" value="' . $value . '" hidden>
-                            ';
+                    if(isset($isCorrect)){
+                        if($isCorrect){
+                            if($value === $correct_answer){
+                                echo '
+                                <label for ="input_' . $key . '" id="input_label_' . $key . '" class="answer-btn answer-btn-correct" name ="input_labels">' . $value . '</label>
+                                <input type="radio" name="answer-set" id="input_' . $key . '" value="' . $value . '" hidden>
+                                ';
+                            }
+                            else{
+                                echo '
+                                <label for ="input_' . $key . '" id="input_label_' . $key . '" class="answer-btn" name ="input_labels">' . $value . '</label>
+                                <input type="radio" name="answer-set" id="input_' . $key . '" value="' . $value . '" hidden>';
+                            }
                         }
                         else{
-                            echo '
-                            <label for ="input_' . $key . '" id="input_label_' . $key . '" class="answer-btn" name ="input_labels">' . $value . '</label>
-                            <input type="radio" name="answer-set" id="input_' . $key . '" value="' . $value . '" hidden>';
+                            if($value === $selected_answer){
+                                echo '
+                                <label for ="input_' . $key . '" id="input_label_' . $key . '" class="answer-btn answer-btn-wrong" name ="input_labels">' . $value . '</label>
+                                <input type="radio" name="answer-set" id="input_' . $key . '" value="' . $value . '" hidden>
+                                ';
+                            }
+                            else{
+                                echo '
+                                <label for ="input_' . $key . '" id="input_label_' . $key . '" class="answer-btn" name ="input_labels">' . $value . '</label>
+                                <input type="radio" name="answer-set" id="input_' . $key . '" value="' . $value . '" hidden>';
+                            }     
                         }
-                    }else{
+                    }
+                    else{
                         echo '
                         <label for ="input_' . $key . '" id="input_label_' . $key . '" class="answer-btn" onclick="highlightText(\'' . $key . '\')" name ="input_labels">' . $value . '</label>
                         <input type="radio" name="answer-set" id="input_' . $key . '" value="' . $value . '" hidden>';
@@ -133,9 +151,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="footer-container">
                 <button class="back-btn" type="reset" form="answer_form">Back</button>
                 <?php
-                    if($isCorrect){
+                    if(isset($isCorrect)){
+                        if($isCorrect){
+                            $is_crr = 1;
+                        }
+                        else{
+                            $is_crr = 0;
+                        }
                         echo'
-                        <a href = "./apis/get_random_question.php?module='.$module_id.'&&pre_q_id='.$q_id.'">
+                        <a href = "./apis/get_random_question.php?module='.$module_id.'&&pre_q_id='.$q_id.'&&iscorrect='.$is_crr.'">
                             <button class="check-btn" type="button" form="answer_form">Continue</button>
                         </a>
                         ';

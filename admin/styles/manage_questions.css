@@ -1,0 +1,362 @@
+:root{
+    --blue-dark: #0e141e;
+    --orange-color: #EC9022;
+    --orange-dark-color: #da831a;
+    --white-color: white;
+    --white-shade: #f2f5f7;
+    --green-color: #40af0c;
+}
+
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: rgb(244, 239, 239);
+    font-family: Arial;
+}
+
+.container{
+    width: 100%;
+    min-height: 800px;
+    height: auto;
+    display: flex;
+}
+
+.logo{
+    margin-left: 28px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--orange-color);
+    column-gap: 8px;
+}
+
+.logo .bx{
+    font-size: 28px;
+}
+
+.sidenav{
+    height: auto;
+    background-color: white;
+    overflow: hidden;
+    transition: 0.5s;
+    padding-top: 30px;
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+    flex-basis: 20%;
+}
+
+.sidenav a{
+    padding: 15px 8px 15px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav .active{
+    color: #f1f1f1;
+    background-color: var(--orange-dark-color);
+}
+
+.sidenav a:hover{
+    color: #f1f1f1;
+    background-color: var(--orange-dark-color);
+}
+
+
+.main{
+    padding: 30px;
+    height: auto;
+    flex-basis: 80%;
+}
+
+.col-div-6{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 60px;
+}
+
+.sub-container{
+    width: 100%;
+    height: auto;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead{
+    width: 100%;
+}
+
+th{
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+    background: var(--blue-dark);
+    font-weight: bold;
+}
+
+td{
+    padding: 10px 5px;
+    text-align: center;
+}
+
+td a{
+    text-decoration: none;
+    font-size: 16px;
+    color: rgb(161, 67, 67);
+}
+
+td img{
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+}
+
+.view-button {
+    padding: 8px;
+    background-color: rgb(161, 67, 67);
+    border-radius: 5px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.price{
+    width: 50px;
+}
+
+
+.view{
+    width: 100%;
+    height: auto;
+    /* display: grid;
+    grid-template-columns: repeat(3, 2fr); */
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.box{
+    width: 85%;
+    background-color: rgb(224, 116, 201);
+    margin-left: 30px;
+    margin-bottom: 30px;
+    padding: 30px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    font-weight: bold;
+    display: inline-block;
+    text-align: center;
+}
+
+.box:hover{
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.4);
+}
+
+.add{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    margin: 30px;
+}
+
+.input-box{
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-box input{
+    border-color: var(--orange-color); 
+    box-shadow: none; 
+    font-size: 14px;
+    padding: 8px;
+    color: #818181;
+    border-style: solid;
+    border-radius: 5px;
+    margin-top: 8px;
+}
+
+.input-box input:hover{
+    border-color: var(--orange-dark-color); 
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+.input-box input:focus{
+    outline: none;
+}
+
+
+
+.input-box textarea{
+    border-color: var(--orange-color); 
+    box-shadow: none; 
+    font-size: 14px;
+    padding: 8px;
+    color: #818181;
+    border-style: solid;
+    border-radius: 5px;
+    margin-top: 8px;
+    height: 200px;
+}
+
+.input-box textarea:hover{
+    border-color: var(--orange-dark-color); 
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+.input-box textarea:focus{
+    outline: none;
+}
+
+.input-box select{
+    border-color: var(--orange-color); 
+    box-shadow: none; 
+    font-size: 14px;
+    padding: 8px;
+    color: #818181;
+    border-style: solid;
+    border-radius: 5px;
+    margin-top: 8px;
+    margin-bottom: 30px;
+}
+
+.input-box select:hover{
+    border-color: var(--orange-dark-color); 
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+.input-box section:focus{
+    outline: none;
+}
+
+.btn{
+    padding: 8px;
+    background-color: var(--blue-dark);
+    border-radius: 5px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.btn:hover{
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+    background-color: var(--orange-dark-color);
+}
+
+.questions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 10px;
+    background-color: var(--white-shade);
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+    padding: 0px 0px 0px 20px;
+    margin-bottom: 30px;
+}
+
+.questions a{
+    flex-basis: 10%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1200px){
+
+    .sidenav{
+        height: auto;
+        background-color: white;
+        overflow: hidden;
+        transition: 0.5s;
+        padding-top: 30px;
+        box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+        flex-basis: 30%;
+    }
+
+    .main{
+        padding: 16px;
+        height: auto;
+        flex-basis: 70%;
+        padding: 30px 60px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sub-container{
+        display: grid;
+        grid-template-columns: repeat(1, 2fr);
+        justify-items: center;
+        gap: 20px;
+    }
+}
+
+@media only screen and (max-width: 600px){
+
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidenav{
+        height: auto;
+        background-color: white;
+        overflow: hidden;
+        transition: 0.5s;
+        padding-top: 30px;
+        box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+        flex-basis: 40%;
+    }
+    .sidenav a{
+        display: block;
+        margin-right: 50px;
+        margin-top: 10px;
+        margin-bottom: 10px;   
+    }
+
+    .sidenav p{
+        display: block;
+        margin-right: 50px;
+        margin-top: 10px;
+        margin-bottom: 10px;   
+    }
+
+    .main{
+        padding: 16px;
+        height: auto;
+        flex-basis: 60%;
+        padding: 30px 10px;
+    }
+
+    .sub-container{
+        display: grid;
+        grid-template-columns: repeat(1, 2fr);
+        justify-items: center;
+    }
+}
