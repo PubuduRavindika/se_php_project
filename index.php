@@ -21,7 +21,7 @@
                     <h1>For</h1>
                     <h1 style="color: #EC9022; margin-left: 10px;">Lecturer</h1>
                 </div>
-                <p class="detail">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa laborum placeat rerum ex, architecto quas fugit!</p>
+                <p class="detail">Access now to explore the array of features available to help you guide and inspire your students on their educational journey.</p>
                 <a href="admin_login.php"><button class="admin-btn">Log In</button></a>
                 <br>
                 <p>Don't have an account?</p>
@@ -34,7 +34,7 @@
                     <h1>For</h1>
                     <h1 style="color: #EC9022; margin-left: 10px;">Student</h1>
                 </div>
-                <p class="detail">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa laborum placeat rerum ex, architecto quas fugit!</p>
+                <p class="detail">Enhance learning with interactive quizzes, assess your knowledge, and stay on top of your coursework effortlessly on our user-friendly platform.</p>
                 <a href="student_login.php"><button class="student-btn">Log In</button></a>
                 <br>
                 <p>Don't have an account?</p>

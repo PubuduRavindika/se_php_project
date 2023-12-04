@@ -32,6 +32,8 @@ if (mysqli_num_rows($result) > 0) {
         $title = $row["q_title"];
         $body = $row["q_body"];
         $code = $row["q_code"];
+        $hint = $row["q_hint"];
+        $explain = $row["q_explanation"];
         $correct_answer = $row["q_correct_answer"];
         array_push($answers, $row["q_answer"]);
     };
@@ -78,8 +80,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }
                 ?>
             </div>
-            <p><?php echo (isset($_SESSION["count"]) ? ($_SESSION["count"]) : "") ?></p>
-            <a href="" class="bookmark"><i class='bx bx-bookmark-alt'></i></a>
             <a href="questions_set.php?module=<?php echo($module_id);?>" class="close"><i class='bx bx-x'></i></i>Exit</a>
 
         </header>
@@ -106,11 +106,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             ?>
             <form class="answers" id="answer_form" method="POST" action="<?php echo $_SERVER["REQUEST_URI"]; ?>">
                 <?php
+                $view_exp = false;
+                $view_error = false;
                 !isset($isCorrect) && shuffle($answers);
                 foreach ($answers as $key => $value) {
                     if(isset($isCorrect)){
                         if($isCorrect){
                             if($value === $correct_answer){
+                                $view_exp = true;
                                 echo '
                                 <label for ="input_' . $key . '" id="input_label_' . $key . '" class="answer-btn answer-btn-correct" name ="input_labels">' . $value . '</label>
                                 <input type="radio" name="answer-set" id="input_' . $key . '" value="' . $value . '" hidden>
@@ -124,6 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         }
                         else{
                             if($value === $selected_answer){
+                                $view_error = true;
                                 echo '
                                 <label for ="input_' . $key . '" id="input_label_' . $key . '" class="answer-btn answer-btn-wrong" name ="input_labels">' . $value . '</label>
                                 <input type="radio" name="answer-set" id="input_' . $key . '" value="' . $value . '" hidden>
@@ -146,6 +150,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
                 ?>
             </form>
+
+            <?php
+                if($view_exp){
+                    echo '
+                        <div class="explaination" id="explanation-div">
+                            <p id = "explanation-text"><b>Answer is Correct: </b>'.$explain.'</p>
+                        </div>
+                    ';
+                }else if($view_error){
+                    echo '
+                        <div class="q-error" id="explanation-div">
+                            <p id = "explanation-text"><b>Answer is Incorrect!</b></p>
+                        </div>
+                    ';
+                }
+                else{
+                    if(trim($hint) != ""){
+                        echo '
+                            <div class="discription" id="explanation-div">
+                                <p id = "explanation-text">'.$hint.'</p>
+                            </div>
+                        ';
+                    }
+                }
+            ?>
+
         </div>
         <footer class="footer">
             <div class="footer-container">
