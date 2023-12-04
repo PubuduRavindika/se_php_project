@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="container">
         <header>
-            <a href="" class="logo"><i class='bx bxl-redux'></i>LMS QUIZ</a>
+            <a href="dashboard.php" class="logo"><i class='bx bxl-redux'></i>LMS QUIZ</a>
             <div class="progress-bar">
                 <?php
                     if(isset($_SESSION["count"])){

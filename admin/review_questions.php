@@ -25,7 +25,7 @@ if (!isset($_SESSION["lecturer"])) {
         <div class="main">
             <div class="col-div-6">
                 <span style="font-size: 30px; cursor: pointer; color: #da831a;" class="nav">Review Questions</span>
-                <a style="color: #da831a; text-decoration: none; margin-top: 8px;" href="logout.php">Logout</a>
+                <a style="color: #da831a; text-decoration: none; margin-top: 8px;" href="../logout.php">Logout</a>
             </div>
 
             <div class="sub-container">

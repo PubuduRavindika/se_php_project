@@ -59,7 +59,7 @@ $row_1 = mysqli_fetch_assoc($result_1);
                                   <p style="color: #0e141e">' . $row["q_correct_answer"] . '</p>
                               </div>
           
-                              <button class="admin-btn">View Explanation</button>
+                              <button onclick=\'window.location.href="view_question.php?q='.$row["q_id"].'"\' class="admin-btn">View Explanation</button>
                           </div>
                         ';
           }

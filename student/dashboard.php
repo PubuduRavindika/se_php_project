@@ -14,6 +14,15 @@
             </script>
         ';
     }
+    
+    if(isset($_SESSION["questions"])){
+        unset($_SESSION["questions"]);
+        $_SESSION["questions"] = array();
+    }
+    
+    if(isset($_SESSION["count"])){
+        unset($_SESSION["count"]);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +34,17 @@
     <link rel="stylesheet" href="styles/dashboard.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
-
+<style>
+    a {
+        color: black;
+    }
+    .compiler-btn {
+        border: 1px solid black;
+        margin: 0px 5px;
+        padding: 5px 10px;
+        font-weight: 700
+    }
+</style>
 <body>
     
     <?php
@@ -36,7 +55,14 @@
         <div class="section_01">
             <div class="head">
                 <h1>Prepare</h1>
-                <a href="">Bookmarked Challenges</a>
+                <div>
+                <a href="c_compiler.php">
+                    <span class="compiler-btn">C Compiler </span>
+                </a>
+                <a href="java_compiler.php">
+                <span class="compiler-btn"><i class='bx bxl-java'></i> Java Compiler</span>
+                </a>
+                </div>
             </div>
 
             <div class="topic">
