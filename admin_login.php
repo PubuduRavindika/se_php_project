@@ -2,14 +2,14 @@
 
 require("./db_config/db_config.php");
 
-if(isset($_SESSION["user"])){
-    header("location:./student/dashboard.php");
+if (isset($_SESSION["lecturer"])) {
+    header("location:./admin/dashboard.php");
 }
 
-if(isset($_GET["err"])){
+if (isset($_GET["err"])) {
     echo '
         <script>
-        alert("Message: '.$_GET['err'].'");
+        alert("Message: ' . $_GET['err'] . '");
         </script>
     ';
 }
@@ -23,21 +23,20 @@ function validateInput($data)
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = validateInput($_POST["index_no"]);
+    $email = validateInput($_POST["email"]);
     $password = validateInput($_POST["password"]);
 
-    $get_student_sql = "SELECT student_id, student_name ,student_password FROM student_table WHERE student_id = '$name'";
-    $result = mysqli_query($conn, $get_student_sql);
+    $get_lecture_sql = "SELECT lecturer_name, lecturer_email, lecturer_password, lecturer_id FROM lecturer_table WHERE lecturer_email = '$email'";
+    $result = mysqli_query($conn, $get_lecture_sql);
 
     if (mysqli_num_rows($result) > 0) {
         // output data of each row
         while ($row = mysqli_fetch_assoc($result)) {
-            if($password === $row["student_password"]){
+            if ($password === $row["lecturer_password"]) {
                 $_SESSION['isLoggedIn'] = true;
-                $_SESSION['user'] = array("index" => $row["student_id"], "name" => $row["student_name"]);
-                header("location:./student/dashboard.php");        
-            }
-            else{
+                $_SESSION['lecturer'] = array("id" => $row["lecturer_id"], "email" => $row["lecturer_email"], "name" => $row["lecturer_name"]);
+                header("location:./admin/dashboard.php");
+            } else {
                 header("location:student_login.php?err=Invalid Credentials!!!");
             }
         }
@@ -66,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="login-container">
         <header>
             <a href="" class="logo"><i class='bx bxl-redux'></i>LMS QUIZ</a>
-            <h1 style="margin-top: 10px;">For Students</h1>
+            <h1 style="margin-top: 10px;">For Lectures</h1>
         </header>
         <div class="login-box">
             <div class="top">Log In</div>
@@ -74,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="text-field">
                     <div class="log">
                         <i class='bx bx-user' style="color: #0e141e; margin: 15px; font-size: 24px;"></i>
-                        <input type="text" name="index_no" placeholder="Enter Your Index">
+                        <input type="text" name="email" placeholder="Enter Your Email">
                     </div>
 
                     <div class="log">

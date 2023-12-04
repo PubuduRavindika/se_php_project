@@ -22,7 +22,7 @@
                     <h1 style="color: #EC9022; margin-left: 10px;">Admin</h1>
                 </div>
                 <p class="detail">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa laborum placeat rerum ex, architecto quas fugit!</p>
-                <button class="admin-btn">Log In</button>
+                <a href="admin_login.php"><button class="admin-btn">Log In</button></a>
                 <br>
                 <p>Don't have an account?</p>
                 <a href="" style="color: black;">Sign Up</a>

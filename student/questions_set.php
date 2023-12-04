@@ -55,7 +55,7 @@ if(isset($_SESSION["count"])){
     <div class="container">
         <div class="section_01">
             <div class="head">
-                <h1><?php echo $row["module_name"] ?></h1>
+                <h1><?php echo $module_name ?></h1>
                 <!-- <a href="">Bookmarked Challenges</a> -->
             </div>
 
@@ -70,7 +70,7 @@ if(isset($_SESSION["count"])){
                                         <p style="margin-bottom: 30px; font-weight: 600; color: #0e141e;">Quiz Kit '.($kit_count + 1).'</p>
                                         <img class="done" src="images/done_green.png" width="25px" height="25px">
                                     </div>
-                                    <p style="margin-bottom: 30px; color: #87888a;">Lorem ipsum dolor sit amet.</p>
+                                    <p style="margin-bottom: 30px; color: #87888a;">'.$module_name.'</p>
                                     <div class="btn_row">
                                         <div class="btn_left">
                                             <div class="level-tag">Level '.$module_level.'</div>
@@ -96,7 +96,7 @@ if(isset($_SESSION["count"])){
                                         <p style="margin-bottom: 30px;">Quiz Kit '.($kit_count + 1).'</p>
                                         <img src="images/unlock_icon.png" width="25px" height="25px">
                                     </div>
-                                    <p style="margin-bottom: 30px; color: #87888a;">Lorem ipsum dolor sit amet.</p>
+                                    <p style="margin-bottom: 30px; color: #87888a;">'.$module_name.'</p>
                                     <div class="btn_row">
                                     <div class="btn_left">
                                         <div class="level-tag">Level '.$module_level.'</div>
@@ -117,7 +117,7 @@ if(isset($_SESSION["count"])){
                                     <p style="margin-bottom: 30px;">Quiz Kit '.($i + 1).'</p>
                                     <img src="images/lock_icon.png" width="20px" height="20px">
                                 </div>
-                                <p style="margin-bottom: 30px; color: #87888a;">Lorem ipsum dolor sit amet.</p>
+                                <p style="margin-bottom: 30px; color: #87888a;">'.$module_name.'</p>
                                 <div class="btn_row">
                                 <div class="btn_left">
                                     <div class="level-tag">Level '.$module_level.'</div>

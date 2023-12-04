@@ -1,9 +1,11 @@
 <?php
 require("../db_config/db_config.php");
 
-// if (!isset($_SESSION["user"])) {
-//     header("location:../student_login.php?err=Please Login First!!!");
-// }
+if (!isset($_SESSION["lecturer"])) {
+    header("location:../admin_login.php?err=Please Login First!!!");
+}
+
+$lec_id = $_SESSION["lecturer"]["id"];
 
 function validateInput($data){
     $data = trim($data);
@@ -24,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $q_explain = validateInput($_POST["q_explain"]);
     $q_module = validateInput($_POST["q_module"]);
 
-    $insert_question = "INSERT INTO `questions`(`q_title`, `q_body`, `q_hint`, `q_explanation`, `q_correct_answer`, `q_type`, `q_code`,`module_id`) VALUES ('$q_title','$q_body','$q_hint','$q_explain','$q_correct_ans','mcq','$q_code','$q_module')";
+    $insert_question = "INSERT INTO `questions`(`q_title`, `q_body`, `q_hint`, `q_explanation`, `q_correct_answer`, `q_type`, `q_code`,`module_id`, `lecturer_id`) VALUES ('$q_title','$q_body','$q_hint','$q_explain','$q_correct_ans','mcq','$q_code','$q_module', '$lec_id')";
 
     if (mysqli_query($conn, $insert_question)) {
         $last_id = mysqli_insert_id($conn);
@@ -116,7 +118,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="q_module">Select Module:</label>
             <select name="q_module" id="q_module">
                 <?php
-                $sql = "SELECT * FROM modules";
+                $sql = "SELECT * FROM modules WHERE lecturer_id = '$lec_id'";
                 $result = mysqli_query($conn, $sql);
 
                 if (mysqli_num_rows($result) > 0) {

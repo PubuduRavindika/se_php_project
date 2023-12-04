@@ -31,7 +31,7 @@
             echo 'Question Added Successfully!!!';
             unset($_SESSION["questions"]);
             unset($_SESSION["count"]);
-            header("location:questions_set.php?module=$module_id");
+            // header("location:questions_set.php?module=$module_id");
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
